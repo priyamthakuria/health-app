@@ -1,0 +1,64 @@
+.floating-images-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 550px; /* Adjusted height for larger images */
+    background-color:white; /* Light blue background */
+  }
+  
+  .floating-images {
+    display: flex;
+    animation: float-images 10s linear infinite;
+  }
+  
+  .floating-image {
+    margin-top: 100px; /* Added spacing */
+    margin-bottom: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 300px; /* Explicit height */
+    width: 300px; /* Explicit width */
+    object-fit: cover; /* Ensures images maintain aspect ratio */
+  }
+  
+  .floating-text {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .floating-text .text-wrapper {
+    display: inline-block;
+    animation: float-text 10s linear infinite;
+  }
+  
+  .floating-text p {
+    display: inline;
+    margin: 0 50px;
+    font-size: 1.8rem; /* Increased text size for better visibility */
+    color: #4a4a4a;
+    font-weight: bold;
+  }
+  
+  /* Image animation */
+  @keyframes float-images {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  /* Text animation */
+  @keyframes float-text {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
