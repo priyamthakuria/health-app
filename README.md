@@ -1,9 +1,9 @@
 This is a README file.
 
+to setup, move to the client folder 
 
-to setup, move the the client folder 
+install npm packages
 > npm install
 
-to run the development server:
-> cd client \
+run the development server:
 > npm run dev
