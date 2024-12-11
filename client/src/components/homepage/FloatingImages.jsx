@@ -1,5 +1,5 @@
 import React from "react";
-import "/styles/FloatingImages.css";
+import "/src/styles/FloatingImages.css";
 
 function FloatingImages() {
   const images = [

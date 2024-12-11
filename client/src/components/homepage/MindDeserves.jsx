@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";  // Importing Link for navigation
-import "/styles/MindDeserves.css";
+import "/src/styles/MindDeserves.css";
 
 function MindDeserves() {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import "/styles/Blog.css";
+import "/src/styles/Blog.css";
 
 function Blog() {
   return (

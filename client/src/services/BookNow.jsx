@@ -1,5 +1,5 @@
 import React from "react";
-import "/styles/BookNow.css";
+import "/src/styles/BookNow.css";
 
 function BookNow() {
   return (

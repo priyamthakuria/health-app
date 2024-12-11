@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
-import "/styles/Header.css"; // Importing the updated header styles
+import "/src/styles/Header.css"; // Importing the updated header styles
 
 function Header() {
   return (

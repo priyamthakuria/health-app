@@ -1,5 +1,5 @@
 import React from 'react';
-import '/styles/ChooseYourPlan.css';
+import '/src/styles/ChooseYourPlan.css';
 
 function ChooseYourPlan() {
   const plans = [

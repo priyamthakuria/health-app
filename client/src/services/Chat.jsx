@@ -1,5 +1,5 @@
 import React from "react";
-import "/styles/Chat.css";
+import "/src/styles/Chat.css";
 
 function Chat() {
   return (

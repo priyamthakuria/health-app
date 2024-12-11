@@ -1,5 +1,5 @@
 import React from "react";
-import "/styles/GetHelp.css"; // Importing the CSS for styling
+import "/src/styles/GetHelp.css"; // Importing the CSS for styling
 
 function GetHelp() {
   return (
