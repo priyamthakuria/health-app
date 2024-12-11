@@ -1,0 +1,16 @@
+.chat-page {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .chat-page h1 {
+    font-size: 2.5em;
+    color: purple;
+  }
+  
+  .chat-page p {
+    font-size: 1.2em;
+    margin-top: 20px;
+    color: grey;
+  }
+  

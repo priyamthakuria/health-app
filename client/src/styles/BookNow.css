@@ -1,0 +1,16 @@
+.booknow-page {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .booknow-page h1 {
+    font-size: 2.5em;
+    color: purple;
+  }
+  
+  .booknow-page p {
+    font-size: 1.2em;
+    margin-top: 20px;
+    color: grey;
+  }
+  
