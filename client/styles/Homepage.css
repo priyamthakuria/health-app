@@ -66,4 +66,221 @@ body, #root {
   .signin-btn:hover {
     background-color: #218838;
   }
+
+  .mind-deserves {
+    background-color: #ffeb3b; /* Yellow background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 0;
+  }
   
+  .mind-deserves-content h2 {
+    font-size: 2.5rem;
+    color: #6a1b9a; /* Purple text */
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .mind-deserves-content p {
+    font-size: 1.1rem;
+    color: #6a1b9a; /* Purple text */
+    margin-bottom: 30px;
+  }
+  
+  .buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .read-btn, .chat-btn {
+    padding: 10px 25px;
+    font-size: 1.1rem;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .read-btn {
+    background-color: #81c784; /* Light Green */
+  }
+  
+  .chat-btn {
+    background-color: #388e3c; /* Dark Green */
+  }
+  
+  .read-btn:hover {
+    background-color: #66bb6a; /* Light Green Hover */
+  }
+  
+  .chat-btn:hover {
+    background-color: #2c6f3e; /* Dark Green Hover */
+  }
+  
+  .why-choose-us-section {
+    background-color: white;
+    padding: 40px;
+    padding-bottom: 50px;
+  }
+  
+  .section-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    margin-top: 40px;
+    margin-left: 50px;
+  }
+  
+  .section-paragraph {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    text-align: left;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 40px;
+  }
+  
+
+  .choose-your-plan {
+    background-color: #ffeb3b; /* Yellow background */
+    padding: 40px;
+    text-align: center;
+  }
+  
+  .choose-your-plan h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .plans {
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    gap: 40px;
+  }
+  
+  .plan-box {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .plan-top {
+    background-color: #87ceeb; /* Sky blue */
+    padding: 15px;
+    color: #fff;
+  }
+  
+  .plan-top h3 {
+    font-size: 1.5rem;
+    margin: 5px 0;
+  }
+  
+  .plan-top p {
+    font-size: 1rem;
+    margin: 0;
+  }
+  
+  .plan-bottom {
+    background-color: #fff;
+    padding:  15px;
+    color: #333;
+  }
+  
+  .plan-bottom p {
+    margin: 10px 0;
+    font-size: 1rem;
+  }
+  
+  .plan-bottom button {
+    background-color: #87ceeb; /* Sky blue */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .plan-bottom button:hover {
+    background-color: #5b9bd5;
+  }
+
+
+  .floating-images-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 550px; /* Adjusted height for larger images */
+    background-color:white; /* Light blue background */
+  }
+  
+  .floating-images {
+    display: flex;
+    animation: float-images 10s linear infinite;
+  }
+  
+  .floating-image {
+    margin-top: 100px; /* Added spacing */
+    margin-bottom: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 300px; /* Explicit height */
+    width: 300px; /* Explicit width */
+    object-fit: cover; /* Ensures images maintain aspect ratio */
+  }
+  
+  .floating-text {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .floating-text .text-wrapper {
+    display: inline-block;
+    animation: float-text 10s linear infinite;
+  }
+  
+  .floating-text p {
+    display: inline;
+    margin: 0 50px;
+    font-size: 1.8rem; /* Increased text size for better visibility */
+    color: #4a4a4a;
+    font-weight: bold;
+  }
+  
+  /* Image animation */
+  @keyframes float-images {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  /* Text animation */
+  @keyframes float-text {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
