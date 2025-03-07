@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
-import "/src/styles/Header.css"; // Importing the updated header styles
+import { Link } from "react-router-dom";
+import "/src/styles/Header.css";
 
 function Header() {
   return (
@@ -16,7 +16,7 @@ function Header() {
           <li><a href="/booknow">Book Now</a></li>
         </ul>
       </nav>
-      {/* Replace the button with a Link to Get Help page */}
+
       <Link to="/gethelp">
         <button className="get-help-btn">Get Help</button>
       </Link>

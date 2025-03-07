@@ -1,0 +1,37 @@
+{
+  "name": "health-app",
+  "version": "1.0.0",
+  "description": "A modern web application for mental health services",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd server && npm start",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "install:all": "npm install && cd client && npm install && cd ../server && npm install",
+    "build": "cd client && npm run build",
+    "test": "cd client && npm test && cd ../server && npm test",
+    "lint": "cd client && npm run lint && cd ../server && npm run lint",
+    "lint:fix": "cd client && npm run lint -- --fix && cd ../server && npm run lint:fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priyo-m/health-app.git"
+  },
+  "keywords": [
+    "health",
+    "mental-health",
+    "react",
+    "node",
+    "express"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/priyo-m/health-app/issues"
+  },
+  "homepage": "https://github.com/priyo-m/health-app#readme",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+} 
