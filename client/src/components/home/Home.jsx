@@ -1,67 +1,39 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
 
 function Home() {
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    localStorage.removeItem("token"); // Remove token from localStorage
-    navigate("/"); // Redirect to login page
-  };
-
   const plans = [
-    { name: "Basic Plan", price: "$10/month", description: "Basic access to mental health resources." },
-    { name: "Premium Plan", price: "$30/month", description: "Access to one-on-one therapy sessions." },
-    { name: "Gold Plan", price: "$50/month", description: "All-inclusive mental health support, including workshops." },
-    { name: "Platinum Plan", price: "$80/month", description: "Comprehensive therapy and mental wellness services." },
-    { name: "Diamond Plan", price: "$100/month", description: "Exclusive therapy and personal wellness coach." },
-    { name: "Ultimate Plan", price: "$150/month", description: "All-access pass with premium support and events." },
+    { name: "Basic Plan", price: "$10/month", description: "Basic access to mental health resources.", color: "bg-blue-100 border-blue-400" },
+    { name: "Premium Plan", price: "$30/month", description: "Access to one-on-one therapy sessions.", color: "bg-green-100 border-green-400" },
+    { name: "Gold Plan", price: "$50/month", description: "All-inclusive mental health support, including workshops.", color: "bg-yellow-100 border-yellow-400" },
+    { name: "Platinum Plan", price: "$80/month", description: "Comprehensive therapy and mental wellness services.", color: "bg-purple-100 border-purple-400" },
+    { name: "Diamond Plan", price: "$100/month", description: "Exclusive therapy and personal wellness coach.", color: "bg-pink-100 border-pink-400" },
+    { name: "Ultimate Plan", price: "$150/month", description: "All-access pass with premium support and events.", color: "bg-red-100 border-red-400" },
   ];
-
-  const images = [
-    "https://via.placeholder.com/200x100",
-    "https://via.placeholder.com/150x200",
-    "https://via.placeholder.com/250x150",
-    "https://via.placeholder.com/100x200",
-    "https://via.placeholder.com/200x150",
-  ];
-
-  const text = "Your mental health matters. Take the first step towards wellness.";
 
   return (
-    <div className="font-sans">
-      {/* Hero Section */}
-      <section className="flex justify-end items-center bg-white h-screen">
-        <div className="max-w-lg text-right p-10">
-          <h1 className="text-4xl font-bold text-purple-700 mb-4">Mental Health Matters</h1>
-          <p className="text-lg text-purple-700 mb-6">It's time to prioritize your mental well-being.</p>
-          <button
-            onClick={handleLogout}
-            className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-700 transition mt-4"
-          >
-            Logout
-          </button>
-        </div>
-      </section>
+      <div className="font-sans min-h-screen bg-white">
+        {/* Hero Section */}
+        <section className="flex justify-center items-center h-screen bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50">
+          <div className="max-w-lg text-center p-10">
+            <h1 className="text-5xl font-extrabold text-gray-900 mb-4">Mental Health Matters</h1>
+            <p className="text-lg text-gray-700">Prioritize your mental well-being. You deserve it.</p>
+          </div>
+        </section>
 
-      {/* Other Sections */}
-      <section className="bg-yellow-300 text-center py-16">
-        <h2 className="text-3xl font-bold text-purple-700 mb-4">Your Mind Deserves the Best</h2>
-        <p className="text-lg text-purple-700 mb-6">Give yourself the care and attention you deserve. Take a step towards mental wellness.</p>
-        <div className="flex justify-center gap-4">
-          <Link to="/blogs">
-            <button className="px-4 py-2 bg-green-400 text-white rounded-md hover:bg-green-500">
-              Read Our Blogs
-            </button>
-          </Link>
-          <Link to="/chat">
-            <button className="px-4 py-2 bg-green-700 text-white rounded-md hover:bg-green-800">
-              Go to Chat Page
-            </button>
-          </Link>
-        </div>
-      </section>
-    </div>
+        {/* Plans Section */}
+        <section className="py-16 text-center">
+          <h2 className="text-3xl font-bold text-gray-800 mb-6">Choose Your Wellness Plan</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-10">
+            {plans.map((plan, index) => (
+                <div key={index} className={`p-6 rounded-lg shadow-md border ${plan.color} transition-transform transform hover:scale-105`}>
+                  <h3 className="text-2xl font-semibold text-gray-900">{plan.name}</h3>
+                  <p className="text-gray-700 font-bold">{plan.price}</p>
+                  <p className="text-gray-600 mt-2">{plan.description}</p>
+                </div>
+            ))}
+          </div>
+        </section>
+      </div>
   );
 }
 

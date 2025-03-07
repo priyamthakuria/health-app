@@ -7,3 +7,6 @@ to setup, move the the client folder
 to run the development server:
 > cd client \
 > npm run dev
+
+
+to run 

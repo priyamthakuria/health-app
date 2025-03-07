@@ -2,117 +2,110 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Header() {
-  const isLoggedIn = !!localStorage.getItem("token"); // Check login status
-  const navigate = useNavigate();
-  const [showPopup, setShowPopup] = useState(false); // State for popup visibility
-  const [popupPosition, setPopupPosition] = useState({}); // State for popup position
+    const isLoggedIn = !!localStorage.getItem("token");
+    const navigate = useNavigate();
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [profileImage, setProfileImage] = useState("/default-avatar.png");
 
-  const handleNavigation = (path, e) => {
-    if (!isLoggedIn) {
-      // Prevent the default behavior when not logged in
-      e.preventDefault();
-      const rect = e.target.getBoundingClientRect(); // Get the position of the clicked button
-      setPopupPosition({
-        top: rect.bottom + window.scrollY + 18, // Position the popup below the button
-        left: rect.left + rect.width / 2, // Center the popup horizontally
-      });
-      setShowPopup(true); // Show the login popup
-    } else {
-      // Allow navigation if the user is logged in
-      navigate(path);
-    }
-  };
+    useEffect(() => {
+        const storedImage = localStorage.getItem("profileImage");
+        if (storedImage) {
+            setProfileImage(storedImage);
+        }
+    }, []);
 
-  useEffect(() => {
-    if (showPopup) {
-      const timer = setTimeout(() => setShowPopup(false), 1000); // Automatically close after 3 seconds
-      return () => clearTimeout(timer); // Cleanup timer on component unmount or popup close
-    }
-  }, [showPopup]);
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("profileImage");
+        navigate("/login");
+    };
 
-  return (
-    <header className="bg-white fixed w-full top-0 left-0 z-50 shadow-md flex justify-between items-center p-4">
-      <div className="logo">
-        <img src="logo.png" alt="Logo" className="h-12" />
-      </div>
-      <nav className="flex-grow text-center">
-        <ul className="flex justify-center gap-9 list-none m-0 p-0">
-          <li>
-            <button
-              onClick={(e) => {
-                handleNavigation("/home", e);
-                e.target.style.color = "blue"; // Change color on click
-              }}
-              onMouseLeave={(e) => (e.target.style.color = "black")} // Reset color when hover ends
-              className="text-black text-base no-underline"
-            >
-              Home
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={(e) => {
-                handleNavigation("/blogs", e);
-                e.target.style.color = "blue"; // Change color on click
-              }}
-              onMouseLeave={(e) => (e.target.style.color = "black")} // Reset color when hover ends
-              className="text-black text-base no-underline"
-            >
-              Blogs
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={(e) => {
-                handleNavigation("/chat", e);
-                e.target.style.color = "blue"; // Change color on click
-              }}
-              onMouseLeave={(e) => (e.target.style.color = "black")} // Reset color when hover ends
-              className="text-black text-base no-underline"
-            >
-              Chat
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={(e) => {
-                handleNavigation("/booknow", e);
-                e.target.style.color = "blue"; // Change color on click
-              }}
-              onMouseLeave={(e) => (e.target.style.color = "black")} // Reset color when hover ends
-              className="text-black text-base no-underline"
-            >
-              Book Now
-            </button>
-          </li>
-        </ul>
-      </nav>
-      <button
-        className="bg-sky-500 text-white px-4 py-2 rounded cursor-pointer text-center text-base max-w-xs"
-        onClick={(e) => handleNavigation("/gethelp", e)}
-      >
-        Get Help
-      </button>
+    const handleNavigate = (path) => {
+        setSidebarOpen(false);
+        navigate(path);
+    };
 
-      {/* Popup for Login/Signup */}
-      {showPopup && (
-        <div
-          className="absolute bg-white border border-gray-200 rounded-md shadow-lg p-4"
-          style={{
-            position: "absolute",
-            top: popupPosition.top,
-            left: popupPosition.left,
-            transform: "translateX(-50%)",
-            zIndex: 1000,
-          }}
-        >
-          <p className="text-md text-black-500 text-center mb-1">
-            You need to log in or sign up to access this page.
-          </p>
-        </div>
-      )}
-    </header>
-  );
+    return (
+        <>
+            <header className="fixed top-0 right-4 z-50 flex items-center justify-end w-full p-2 bg-transparent m-0">
+                {isLoggedIn && (
+                    <button onClick={() => setSidebarOpen(true)} className="focus:outline-none">
+                        <img
+                            src={profileImage}
+                            alt="User Avatar"
+                            className="w-12 h-12 rounded-full border-2 border-gray-300 cursor-pointer object-cover"
+                        />
+                    </button>
+                )}
+            </header>
+
+            <div
+                className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-50 transform ${
+                    sidebarOpen ? "translate-x-0" : "translate-x-full"
+                } transition-transform duration-300 ease-in-out`}
+            >
+                <button
+                    className="absolute top-4 left-4 text-black hover:text-gray-800 focus:outline-none"
+                    style={{ color: "black" }}
+                    onClick={() => setSidebarOpen(false)}
+                >
+                    ✖
+                </button>
+
+
+
+                <ul className="mt-16 space-y-4 p-4 text-gray-800">
+                    <li>
+                        <button
+                            onClick={() => handleNavigate("/home")}
+                            className="block w-full text-left px-4 py-2 hover:bg-gray-100 rounded"
+                        >
+                            Home
+                        </button>
+                    </li>
+                    <li>
+                        <button
+                            onClick={() => handleNavigate("/blogs")}
+                            className="block w-full text-left px-4 py-2 hover:bg-gray-100 rounded"
+                        >
+                            Blogs
+                        </button>
+                    </li>
+                    <li>
+                        <button
+                            onClick={() => handleNavigate("/chat")}
+                            className="block w-full text-left px-4 py-2 hover:bg-gray-100 rounded"
+                        >
+                            Chat
+                        </button>
+                    </li>
+                    <li>
+                        <button
+                            onClick={() => handleNavigate("/booknow")}
+                            className="block w-full text-left px-4 py-2 hover:bg-gray-100 rounded"
+                        >
+                            Book Now
+                        </button>
+                    </li>
+                    <li className="border-t border-gray-200 pt-2">
+                        <button
+                            onClick={handleLogout}
+                            className="block w-full text-left px-4 py-2 text-red-600 hover:bg-gray-100 rounded"
+                        >
+                            Logout
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            {sidebarOpen && (
+                <div
+                    className="fixed inset-0 bg-black bg-opacity-50 z-40"
+                    onClick={() => setSidebarOpen(false)}
+                ></div>
+            )}
+        </>
+    );
 }
 
 export default Header;

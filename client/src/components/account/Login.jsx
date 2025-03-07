@@ -6,24 +6,22 @@ import axios from "axios";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [userData, setUserdata] = useState({});
   const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);  // <-- Added loading state
 
-  const { user, setUser } = useContext(UserDataContext);
+  const { setUser } = useContext(UserDataContext);
   const navigate = useNavigate();
 
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    const userData = {
-      email: email,
-      password: password,
-    };
+    setErrorMessage("");  // Clear previous errors immediately
+    setLoading(true);  // Set loading state
 
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_BASE_URL}/users/login`,
-        userData
+          `${import.meta.env.VITE_BASE_URL}/users/login`,
+          { email, password }
       );
 
       if (response.status === 200) {
@@ -31,94 +29,69 @@ function Login() {
         setUser(data.user);
         localStorage.setItem("token", data.token);
         navigate("/home");
-        setErrorMessage(""); // Clear error message on successful login
       }
     } catch (error) {
-      setErrorMessage(
-        "Login failed. Please check your details or sign up if you are not registered."
-      );
+      setErrorMessage("Login failed, try again.");  // Show error immediately when the request fails
+    } finally {
+      setLoading(false);  // Reset loading state
     }
-    setEmail("");
-    setPassword("");
   };
+
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-100 text-gray-800">
-      <h2 className="text-5xl font-medium text-blue-600 mb-8">Login</h2>
-      <div>
-        <form
-          onSubmit={(e) => {
-            submitHandler(e);
-          }}
-          className="w-[25rem]"
-        >
-          <div className="mb-4">
-            <label htmlFor="email" className="block text-lg text-gray-600 mb-2">
-              Enter your Email:
-            </label>
+      <div className="flex flex-col items-center justify-start min-h-screen bg-white text-gray-800 pt-16">
+        <h2 className="text-2xl font-semibold text-gray-900 mb-3">
+          <span className="text-blue-900">Login</span>
+        </h2>
+
+        <form onSubmit={submitHandler} className="w-[22rem] bg-white p-5 rounded-xl shadow-md mt-4">
+          <div className="mb-3">
+            <label className="block text-sm font-medium text-gray-700">Email</label>
             <input
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              type="email"
-              placeholder="email@example.com"
-              className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="email@example.com"
+                className="w-full mt-1 p-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
           </div>
-          <div className="mb-6">
-            <label
-              htmlFor="password"
-              className="block text-lg text-gray-600 mb-2"
-            >
-              Enter your Password:
-            </label>
+
+          <div className="mb-3">
+            <label className="block text-sm font-medium text-gray-700">Password</label>
             <input
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              type="password"
-              placeholder="password"
-              className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                type="password"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Enter password"
+                className="w-full mt-1 p-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
           </div>
+
           <button
-            type="submit"
-            className="w-full flex items-center justify-center p-2 bg-blue-500 text-white text-lg rounded-md hover:bg-blue-600 transition-all"
+              type="submit"
+              className={`w-full p-3 text-white rounded-md font-semibold transition-all ${
+                  loading ? "bg-gray-500 cursor-not-allowed" : "bg-blue-900 hover:bg-blue-800"
+              }`}
+              disabled={loading}  // Disable button when loading
           >
-            Login
+            {loading ? "Logging in..." : "Login"}
           </button>
 
-          <p className="p-2 text-center">
-            New here?
-            <Link to="/signup" className="text-blue-600">
-              {" "}
-              Create new Account
+          {errorMessage && (
+              <p className="text-red-600 text-sm font-semibold pt-2">
+                {errorMessage}
+              </p>
+          )}
+
+          <p className="pt-9 text-center text-gray-600">
+            New here?{" "}
+            <Link to="/signup" className="text-blue-900 font-semibold">
+              Create an Account
             </Link>
           </p>
         </form>
       </div>
-
-      {/* Error Popup */}
-      {errorMessage && (
-        <div className="mt-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative w-[28rem]">
-          <strong className="font-bold">Error:</strong>
-          <span className="block sm:inline">{errorMessage}</span>
-          <button
-            className="absolute top-2 right-2 text-red-500 hover:text-red-700"
-            onClick={() => setErrorMessage("")}
-          >
-            <svg
-              className="fill-current h-6 w-6"
-              role="button"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-            >
-              <title>Close</title>
-              <path d="M14.348 5.652a1 1 0 011.415 1.415L11.415 11l4.348 4.348a1 1 0 01-1.415 1.415L10 12.415l-4.348 4.348a1 1 0 01-1.415-1.415L8.585 11 4.348 6.652a1 1 0 011.415-1.415L10 9.585l4.348-4.348z" />
-            </svg>
-          </button>
-        </div>
-      )}
-    </div>
   );
 }
 
