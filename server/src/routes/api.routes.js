@@ -1,5 +1,6 @@
 import express from 'express';
 import userRoutes from './user.routes.js';
+import postRoutes from './post.routes.js';
 
 const router = express.Router();
 
@@ -10,6 +11,7 @@ router.get('/health', (req, res) => {
 
 // Mount routes
 router.use('/users', userRoutes);
+router.use('/posts', postRoutes);
 
 // Example routes for a mental health app
 router.get('/resources', (req, res) => {
