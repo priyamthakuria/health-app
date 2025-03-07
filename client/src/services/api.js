@@ -41,13 +41,13 @@ const apiService = {
   // Therapists
   getTherapists: () => api.get('/therapists'),
   
-  // Authentication (to be implemented)
-  login: (credentials) => api.post('/auth/login', credentials),
-  register: (userData) => api.post('/auth/register', userData),
+  // Authentication
+  login: (credentials) => api.post('/users/login', credentials),
+  register: (userData) => api.post('/users/register', userData),
   
-  // User profile (to be implemented)
-  getUserProfile: () => api.get('/users/profile'),
-  updateUserProfile: (data) => api.put('/users/profile', data),
+  // User profile
+  getUserProfile: () => api.get('/users/me'),
+  updateUserProfile: (data) => api.put('/users/me', data),
 };
 
 export default apiService; 
