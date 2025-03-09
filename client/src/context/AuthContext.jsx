@@ -41,18 +41,17 @@ export const AuthProvider = ({ children }) => {
       setError(null);
       const response = await apiService.login(credentials);
       const { token, user } = response.data;
-      
-      // Save token to local storage
+
       localStorage.setItem('token', token);
       setUser(user);
       return true;
     } catch (err) {
-      setError(err.response?.data?.message || 'Login failed');
-      return false;
+      const message = err.response?.data?.message || 'Login failed';
+      setError(message);
+      throw new Error(message);
     }
   };
 
-  // Register function
   const register = async (userData) => {
     try {
       setError(null);

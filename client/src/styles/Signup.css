@@ -54,4 +54,27 @@
   button:hover {
     background-color: #218838;
   }
+.error-text {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.login-text {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.login-link {
+  color: #007bff;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
   
