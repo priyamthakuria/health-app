@@ -10,7 +10,7 @@ function Login() {
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  
+
   const navigate = useNavigate();
   const { login } = useAuth();
 
@@ -25,55 +25,62 @@ function Login() {
     e.preventDefault();
     setError('');
     setLoading(true);
-    
+
     try {
       const success = await login(formData);
       if (success) {
         navigate('/');
       }
     } catch (err) {
-      setError(err.response?.data?.message || 'Login failed. Please check your credentials.');
+      setError(err.message || 'Login failed. Please check your credentials.');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="login-page">
-      <h2>Login</h2>
-      {error && <div className="error-message">{error}</div>}
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="email">Email:</label>
-          <input 
-            type="email" 
-            id="email" 
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Enter your email" 
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">Password:</label>
-          <input 
-            type="password" 
-            id="password" 
-            value={formData.password}
-            onChange={handleChange}
-            placeholder="Enter your password" 
-            required
-          />
-        </div>
-        <button 
-          type="submit" 
-          className="btn login-btn"
-          disabled={loading}
-        >
-          {loading ? 'Logging in...' : 'Login'}
-        </button>
-      </form>
-    </div>
+      <div className="login-page">
+        <h2>Login</h2>
+
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="email">Email:</label>
+            <input
+                type="email"
+                id="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Enter your email"
+                required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Password:</label>
+            <input
+                type="password"
+                id="password"
+                value={formData.password}
+                onChange={handleChange}
+                placeholder="Enter your password"
+                required
+            />
+          </div>
+
+          <button
+              type="submit"
+              className="btn login-btn"
+              disabled={loading}
+          >
+            {loading ? 'Logging in...' : 'Login'}
+          </button>
+
+          {error && <p className="error-text">{error}</p>}
+
+          <p className="signup-text">
+            New here? <span onClick={() => navigate('/signup')} className="signup-link">Sign up</span>
+          </p>
+        </form>
+      </div>
   );
 }
 
