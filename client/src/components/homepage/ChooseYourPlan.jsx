@@ -1,5 +1,6 @@
 import React from 'react';
 import '/src/styles/ChooseYourPlan.css';
+import PlanCard from '../common/PlanCard';
 
 function ChooseYourPlan() {
   const plans = [
@@ -11,21 +12,24 @@ function ChooseYourPlan() {
     { name: 'Ultimate Plan', price: '$150/month', description: 'All-access pass with premium support and events.' },
   ];
 
+  const handlePlanSelection = (plan) => {
+    console.log(`Selected plan: ${plan.name}`);
+    // Here you would handle plan selection, perhaps navigating to a checkout page
+    // or showing a modal with more information
+  };
+
   return (
     <div className="choose-your-plan">
       <h2>Choose Your Plan</h2>
       <div className="plans">
         {plans.map((plan, index) => (
-          <div className="plan-box" key={index}>
-            <div className="plan-top">
-              <h3>{plan.name}</h3>
-              <p>{plan.price}</p>
-            </div>
-            <div className="plan-bottom">
-              <p>{plan.description}</p>
-              <button>Get Started</button>
-            </div>
-          </div>
+          <PlanCard
+            key={index}
+            name={plan.name}
+            price={plan.price}
+            description={plan.description}
+            onGetStarted={() => handlePlanSelection(plan)}
+          />
         ))}
       </div>
     </div>

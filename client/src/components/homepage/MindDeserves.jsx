@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";  // Importing Link for navigation
+import Button from "../common/Button";
 import "/src/styles/MindDeserves.css";
 
 function MindDeserves() {
@@ -11,10 +12,10 @@ function MindDeserves() {
         <div className="buttons">
           {/* Using Link for navigation */}
           <Link to="/blogs">
-            <button className="read-btn">Read Our Blogs</button>
+            <Button text="Read Our Blogs" className="read-btn" />
           </Link>
           <Link to="/chat">
-            <button className="chat-btn">Start Chatting</button>
+            <Button text="Start Chatting" className="chat-btn" />
           </Link>
         </div>
       </div>

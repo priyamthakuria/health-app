@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import Button from '../common/Button';
 import '/src/styles/Signup.css';
 
 function Signup() {
@@ -77,13 +78,12 @@ function Signup() {
             required
           />
         </div>
-        <button 
+        <Button 
+          text={loading ? 'Signing Up...' : 'Sign Up'}
           type="submit" 
-          className="btn signup-btn"
+          className="signup-btn"
           disabled={loading}
-        >
-          {loading ? 'Signing Up...' : 'Sign Up'}
-        </button>
+        />
       </form>
     </div>
   );

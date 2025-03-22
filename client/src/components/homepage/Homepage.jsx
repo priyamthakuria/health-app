@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom"; // Import Link for routing
+import Button from "../common/Button";
 import "/src/styles/Homepage.css";
 
 function Homepage() {
@@ -11,10 +12,10 @@ function Homepage() {
         <div className="buttons">
           {/* Use Links to navigate */}
           <Link to="/login">
-            <button className="btn login-btn">Login</button>
+            <Button text="Login" className="login-btn" />
           </Link>
           <Link to="/signup">
-            <button className="btn signin-btn">Sign In</button>
+            <Button text="Sign In" className="signin-btn" />
           </Link>
         </div>
       </div>
