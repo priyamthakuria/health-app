@@ -1,26 +1,29 @@
 .why-choose-us-section {
-    background-color: white;
+    background-color: var(--background-color);
     padding: 40px;
     padding-bottom: 50px;
+    transition: background-color 0.3s ease;
   }
   
   .section-heading {
     font-size: 2rem;
     font-weight: bold;
-    color: #333;
+    color: var(--text-color);
     margin-bottom: 20px;
     margin-top: 40px;
     margin-left: 50px;
+    transition: color 0.3s ease;
   }
   
   .section-paragraph {
     font-size: 1rem;
     line-height: 1.6;
-    color: #333;
+    color: var(--text-secondary);
     text-align: left;
     margin-bottom: 20px;
     margin-top: 20px;
     margin-left: 50px;
     margin-right: 40px;
+    transition: color 0.3s ease;
   }
   

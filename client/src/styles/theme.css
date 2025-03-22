@@ -1,0 +1,98 @@
+:root {
+  /* Light Theme Variables (default) */
+  --background-color: #ffffff;
+  --background-secondary: #f5f5f5;
+  --text-color: #333333;
+  --text-secondary: #666666;
+  --border-color: #e0e0e0;
+  --card-background: #ffffff;
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --highlight-color: #1976d2;
+  --button-text: #ffffff;
+  --error-color: #f44336;
+  --success-color: #4CAF50;
+  --form-background: #ffffff;
+  --header-background: #ffffff;
+  --footer-background: #f5f5f5;
+  --navbar-active: #1976d2;
+  --navbar-hover: rgba(0, 0, 0, 0.05);
+  --divider-color: #eeeeee;
+  --scrollbar-track: #f1f1f1;
+  --scrollbar-thumb: #c1c1c1;
+  --scrollbar-thumb-hover: #a8a8a8;
+  --input-background: #ffffff;
+  --input-border: #dcdcdc;
+  --modal-overlay: rgba(0, 0, 0, 0.5);
+  --tooltip-background: #333;
+  --tooltip-text: #fff;
+
+  /* Button Colors - Light Theme */
+  --login-btn-bg: #4CAF50;
+  --signin-btn-bg: #2196F3;
+  --get-help-btn-bg: #f44336;
+  --read-btn-bg: #ff9800;
+  --chat-btn-bg: #9c27b0;
+  --plan-button-bg: #4CAF50;
+}
+
+[data-theme='dark'] {
+  /* Dark Theme Variables */
+  --background-color: #121212;
+  --background-secondary: #202020;
+  --text-color: #e0e0e0;
+  --text-secondary: #aaaaaa;
+  --border-color: #333333;
+  --card-background: #1e1e1e;
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  --highlight-color: #2196f3;
+  --button-text: #ffffff;
+  --error-color: #f44336;
+  --success-color: #4CAF50;
+  --form-background: #1e1e1e;
+  --header-background: #1a1a1a;
+  --footer-background: #1a1a1a;
+  --navbar-active: #2196f3;
+  --navbar-hover: rgba(255, 255, 255, 0.1);
+  --divider-color: #333333;
+  --scrollbar-track: #202020;
+  --scrollbar-thumb: #555555;
+  --scrollbar-thumb-hover: #707070;
+  --input-background: #333;
+  --input-border: #444;
+  --modal-overlay: rgba(0, 0, 0, 0.7);
+  --tooltip-background: #e0e0e0;
+  --tooltip-text: #121212;
+
+  /* Button Colors - Dark Theme */
+  --login-btn-bg: #388e3c;
+  --signin-btn-bg: #1565c0;
+  --get-help-btn-bg: #d32f2f;
+  --read-btn-bg: #e65100;
+  --chat-btn-bg: #7b1fa2;
+  --plan-button-bg: #388e3c;
+}
+
+/* Apply transitions */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+} 

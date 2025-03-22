@@ -6,40 +6,60 @@
   border: none;
   outline: none;
   transition: all 0.3s ease;
+  color: var(--button-text);
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .btn:hover {
   opacity: 0.9;
   transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .btn:disabled {
   cursor: not-allowed;
   opacity: 0.6;
   transform: none;
+  box-shadow: none;
 }
 
 .login-btn {
-  background-color: #4CAF50;
-  color: white;
+  background-color: var(--login-btn-bg);
+  color: var(--button-text);
+  border: none;
+}
+
+.login-btn:hover {
+  background-color: var(--primary-button-hover);
 }
 
 .signin-btn {
-  background-color: #2196F3;
-  color: white;
+  background-color: var(--signin-btn-bg);
+  color: var(--button-text);
+  border: none;
+}
+
+.signin-btn:hover {
+  background-color: var(--secondary-button-hover);
 }
 
 .get-help-btn {
-  background-color: #f44336;
-  color: white;
+  background-color: var(--get-help-btn-bg);
+  color: var(--button-text);
 }
 
 .read-btn {
-  background-color: #ff9800;
-  color: white;
+  background-color: var(--read-btn-bg);
+  color: var(--button-text);
 }
 
 .chat-btn {
-  background-color: #9c27b0;
-  color: white;
+  background-color: var(--chat-btn-bg);
+  color: var(--button-text);
+}
+
+.plan-button {
+  background-color: var(--plan-button-bg);
+  color: var(--button-text);
 } 

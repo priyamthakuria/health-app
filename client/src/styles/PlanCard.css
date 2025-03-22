@@ -1,7 +1,7 @@
 .plan-box {
-  background-color: white;
+  background-color: var(--card-background);
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--card-shadow);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
@@ -17,22 +17,22 @@
 }
 
 .plan-top {
-  background-color: #f5f5f5;
+  background-color: var(--background-secondary);
   padding: 20px;
   text-align: center;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .plan-top h3 {
   margin: 0;
-  color: #333;
+  color: var(--text-color);
   font-size: 22px;
 }
 
 .plan-price {
   font-size: 26px;
   font-weight: 600;
-  color: #1976d2;
+  color: var(--highlight-color);
   margin: 10px 0 0;
 }
 
@@ -48,11 +48,11 @@
   margin-top: 0;
   margin-bottom: 20px;
   line-height: 1.5;
-  color: #666;
+  color: var(--text-secondary);
 }
 
 .plan-button {
-  background-color: #4CAF50;
-  color: white;
+  background-color: var(--plan-button-bg);
+  color: var(--button-text);
   width: 100%;
 } 

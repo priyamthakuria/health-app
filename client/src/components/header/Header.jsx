@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import "/src/styles/Header.css";
 import NavItem from "../common/NavItem";
 import Button from "../common/Button";
+import ThemeToggle from "../common/ThemeToggle";
 
 function Header() {
   const location = useLocation();
@@ -37,9 +38,12 @@ function Header() {
         </ul>
       </nav>
 
-      <Link to="/gethelp">
-        <Button text="Get Help" className="get-help-btn" />
-      </Link>
+      <div className="header-actions">
+        <Link to="/gethelp">
+          <Button text="Get Help" className="get-help-btn" />
+        </Link>
+        <ThemeToggle />
+      </div>
     </header>
   );
 }

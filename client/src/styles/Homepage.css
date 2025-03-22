@@ -6,7 +6,7 @@ body, #root {
   }
   
   .hero-section {
-    background-color: white;  /* Set the background color to sky blue */
+    background-color: var(--background-color);
     width: 100%;
     height: 100vh;  /* Full height */
     display: flex;
@@ -14,6 +14,7 @@ body, #root {
     justify-content: flex-end;  /* Align text to the right */
     padding: 0;  /* Ensure no padding is applied here */
     box-sizing: border-box;  /* Include padding in width/height calculations */
+    transition: background-color 0.3s ease;
   }
   
   .hero-content {
@@ -24,14 +25,16 @@ body, #root {
   
   .hero-content h1 {
     font-size: 3em;
-    color: purple;  /* Text color purple */
+    color: var(--highlight-color);
     margin-bottom: 15px;
+    transition: color 0.3s ease;
   }
   
   .hero-content p {
     font-size: 1.2em;
-    color: purple;  /* Text color purple */
+    color: var(--text-color);
     margin-bottom: 30px;
+    transition: color 0.3s ease;
   }
   
   .buttons {
@@ -40,30 +43,5 @@ body, #root {
     justify-content: flex-end; /* Align buttons to the right */
   }
   
-  .btn {
-    padding: 10px 20px;
-    font-size: 1.1em;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .login-btn {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .signin-btn {
-    background-color: #28a745;
-    color: white;
-  }
-  
-  .login-btn:hover {
-    background-color: #0056b3;
-  }
-  
-  .signin-btn:hover {
-    background-color: #218838;
-  }
+  /* Note: Button styles are now handled by Button.css */
   
