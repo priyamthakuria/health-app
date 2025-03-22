@@ -1,0 +1,45 @@
+.btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+}
+
+.login-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.signin-btn {
+  background-color: #2196F3;
+  color: white;
+}
+
+.get-help-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.read-btn {
+  background-color: #ff9800;
+  color: white;
+}
+
+.chat-btn {
+  background-color: #9c27b0;
+  color: white;
+} 

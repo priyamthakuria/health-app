@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import Button from '../common/Button';
 import '/src/styles/Login.css';
 
 function Login() {
@@ -65,13 +66,12 @@ function Login() {
             required
           />
         </div>
-        <button 
+        <Button 
+          text={loading ? 'Logging in...' : 'Login'}
           type="submit" 
-          className="btn login-btn"
+          className="login-btn"
           disabled={loading}
-        >
-          {loading ? 'Logging in...' : 'Login'}
-        </button>
+        />
       </form>
     </div>
   );

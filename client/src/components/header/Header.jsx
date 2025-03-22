@@ -1,8 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "/src/styles/Header.css";
+import NavItem from "../common/NavItem";
+import Button from "../common/Button";
 
 function Header() {
+  const location = useLocation();
+  
   return (
     <header className="header">
       <div className="logo">
@@ -10,15 +14,31 @@ function Header() {
       </div>
       <nav>
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/blogs">Blogs</a></li>
-          <li><a href="/chat">Chat</a></li>
-          <li><a href="/booknow">Book Now</a></li>
+          <NavItem 
+            to="/" 
+            label="Home" 
+            isActive={location.pathname === '/'} 
+          />
+          <NavItem 
+            to="/blogs" 
+            label="Blogs" 
+            isActive={location.pathname === '/blogs'} 
+          />
+          <NavItem 
+            to="/chat" 
+            label="Chat" 
+            isActive={location.pathname === '/chat'} 
+          />
+          <NavItem 
+            to="/booknow" 
+            label="Book Now" 
+            isActive={location.pathname === '/booknow'} 
+          />
         </ul>
       </nav>
 
       <Link to="/gethelp">
-        <button className="get-help-btn">Get Help</button>
+        <Button text="Get Help" className="get-help-btn" />
       </Link>
     </header>
   );
