@@ -1,24 +1,27 @@
 .mind-deserves {
-    background-color: #ffeb3b; /* Yellow background */
+    background-color: var(--background-secondary);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     text-align: center;
     padding: 40px 0;
+    transition: background-color 0.3s ease;
   }
   
   .mind-deserves-content h2 {
     font-size: 2.5rem;
-    color: #6a1b9a; /* Purple text */
+    color: var(--highlight-color);
     font-weight: bold;
     margin-bottom: 20px;
+    transition: color 0.3s ease;
   }
   
   .mind-deserves-content p {
     font-size: 1.1rem;
-    color: #6a1b9a; /* Purple text */
+    color: var(--text-color);
     margin-bottom: 30px;
+    transition: color 0.3s ease;
   }
   
   .buttons {
@@ -30,26 +33,22 @@
   .read-btn, .chat-btn {
     padding: 10px 25px;
     font-size: 1.1rem;
-    color: white;
+    color: var(--button-text);
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   
   .read-btn {
-    background-color: #81c784; /* Light Green */
+    background-color: var(--read-btn-bg);
   }
   
   .chat-btn {
-    background-color: #388e3c; /* Dark Green */
+    background-color: var(--chat-btn-bg);
   }
   
-  .read-btn:hover {
-    background-color: #66bb6a; /* Light Green Hover */
-  }
-  
-  .chat-btn:hover {
-    background-color: #2c6f3e; /* Dark Green Hover */
+  .read-btn:hover, .chat-btn:hover {
+    opacity: 0.9;
   }
   

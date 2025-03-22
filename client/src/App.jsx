@@ -13,12 +13,15 @@ import Signup from "./components/account/Signup.jsx";
 import Blog from './services/Blog.jsx';
 import Chat from './services/Chat.jsx';
 import BookNow from './services/BookNow.jsx';
-import GetHelp from './services/GetHelp.jsx'; // Import GetHelp
+import GetHelp from './services/GetHelp.jsx'; 
+import { useTheme } from './context/ThemeContext';
 
 function App() {
+  const { theme } = useTheme();
+  
   return (
     <Router>
-      <div className="App">
+      <div className="App" data-theme={theme}>
         <Header />
         <Routes>
           <Route 
@@ -34,15 +37,15 @@ function App() {
               </>
             } 
           />
-          {/* Routes for Login and Signup pages */}
+          {/* Routes for Authentication pages */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           
-          {/* Routes for new pages */}
+          {/* Routes for Services pages */}
           <Route path="/blogs" element={<Blog />} />
           <Route path="/chat" element={<Chat />} />
           <Route path="/booknow" element={<BookNow />} />
-          <Route path="/gethelp" element={<GetHelp />} /> {/* Route for Get Help */}
+          <Route path="/gethelp" element={<GetHelp />} /> 
         </Routes>
       </div>
     </Router>

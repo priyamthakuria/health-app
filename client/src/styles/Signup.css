@@ -4,22 +4,25 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   
   h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #28a745;
+    color: var(--highlight-color);
+    transition: color 0.3s ease;
   }
   
   form {
     width: 300px;
-    background: #fff;
+    background: var(--form-background);
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--card-shadow);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
   }
   
   .form-group {
@@ -28,16 +31,20 @@
   
   label {
     font-size: 0.9rem;
-    color: #555;
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
   }
   
   input {
     width: 100%;
     padding: 10px;
     font-size: 1rem;
-    border: 1px solid #ccc;
+    border: 1px solid var(--input-border);
     border-radius: 5px;
     margin-top: 5px;
+    background-color: var(--input-background);
+    color: var(--text-color);
+    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
   }
   
   button {
@@ -53,5 +60,12 @@
   
   button:hover {
     background-color: #218838;
+  }
+  
+  .error-message {
+    color: var(--error-color);
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    text-align: center;
   }
   

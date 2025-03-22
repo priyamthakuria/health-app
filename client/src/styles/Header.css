@@ -1,5 +1,5 @@
 .header {
-    background-color: white;
+    background-color: var(--header-background);
     position: fixed;
     width: 100%;
     top: 0;
@@ -11,6 +11,7 @@
     align-items: center;
     padding: 10px 20px;
     box-sizing: border-box;
+    transition: background-color 0.3s ease;
   }
   
   .header .logo img {
@@ -37,13 +38,20 @@
   .header nav ul li a {
     text-decoration: none;
     font-size: 1rem;
-    color: black;
+    color: var(--text-color);
     white-space: nowrap; /* Prevent wrapping */
+    transition: color 0.3s ease;
+  }
+  
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
   
   .get-help-btn {
-    background-color: skyblue;
-    color: white;
+    background-color: var(--get-help-btn-bg);
+    color: var(--button-text);
     padding: 8px 16px; /* Adjust button padding */
     border-radius: 5px;
     cursor: pointer;
@@ -52,6 +60,7 @@
     font-size: 1rem;
     max-width: 200px; /* Constrain button width */
     overflow: hidden; /* Prevent text overflow */
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   
   @media (max-width: 768px) {
@@ -63,6 +72,12 @@
       justify-content: center;
       flex-wrap: wrap;
       margin-bottom: 10px;
+    }
+  
+    .header-actions {
+      width: 100%;
+      justify-content: center;
+      margin-top: 10px;
     }
   
     .get-help-btn {
